@@ -1,211 +1,600 @@
-*{
-    margin:0;
-    font-family:Arial;
-    border:border-box;
-    
+* {
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
 }
-.navbar{
-    height:60px;
-    background-color:#0f1111;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-evenly;
-   
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll due to drawer */
 }
-.nav-logo{
-    height:50px;
-    width:135px;
-    
+
+.navbar {
+    height: 60px; /* Default desktop height */
+    background-color: #0f1111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Default desktop distribution */
+    position: relative;
+    z-index: 100;
+    padding: 0 10px; /* Add padding for better spacing */
 }
-.nav-address{
-    margin-left:4px;
+
+.nav-logo {
+    height: 50px;
+    width: 135px;
+    /* Default order for mobile, adjusted by JS for desktop */
 }
-.logo{
-    height:50px;
+
+.nav-address,
+.nav-signin,
+.nav-return,
+.nav-cart {
+    gap: 5px; /* For nav-cart */
+}
+
+.nav-address { margin-left: 4px; }
+
+.nav-logo .logo {
+    height: 50px;
     background-image: url("amazon_logo.png");
-    width:100%;
-    background-size:cover;
-}
-.border{
-    border:1.5px solid transparent;
-}
-.border:hover{
-    border:1.5px solid white;
-}
-/*box2*/
-.add-second{
-    font-size: 1rem;
-    margin-left:5px;
-
-}
-.add-first{
-    color:#cccccc;
-    margin-left:15px;
-   
-}
-.add-icon{
-    display:flex;
-    align-items:center;
-}
-/*box3 */
-
-.nav-search:hover{
-    border:3px solid orange;
-}
-.nav-search{
-    display:flex;
-    width:620px;
-    border-radius:5px;
-   background-color:pink;
-   width:620px;
-    height:35px;
-    border-radius:5px;
-    justify-content:space-evenly;
-   
-}
-.search-icon{
-    width:45px;
-display:flex;
-justify-content: center;
-align-items: center;  
-font-size:1.2rem;
-background-color:#febd68;
-border-top-right-radius:4px;
-border-bottom-right-radius:4px;
-}
-.search-input{
- width:100%;
- font-size:1rem;
- border:none;
- color:black;
-}
-
-.search-select{
-    background-color:#f3f3f3;
-    width:50px;
-   text-align:center;
-   border-top-left-radius:4px;
-   border-bottom-left-radius:4px;
-   border:none;
-}
-/*box4*/
-span{
-    font-size:0.7rem;
-
-}
-/* box5*/
-.nav-second{
-   font-size:14px;
-   font-weight: light bold;
-}
-/*box6*/
-.nav-cart i{
-      font-size:30px
-}
-.nav-cart{
-    font-size:1rem;
-    font-weight:700;
-}
-/** panel**/
-.panel{
-    color:white;
-    height:40px;
-    background-color:#222f3d;
-    display:flex;
-    align-items: center;
-    justify-content:space-evenly;
-}
-.panel-op p{
-    display:inline;
-    color:white;
-    margin-left:16px;
-    font-size:14px;
-}
-.prime{
-    font-size:1rem;
-    border:none;
-    background-color:#222f3d;
-    color:white;
-}
-/** hero section**/
-.hero-section{
-    background-image: url("hero_page.jpg");
-    height:400px;
+    width: 100%;
     background-size: cover;
-  
 }
+
+.border {
+    border: 1.5px solid transparent;
+    padding: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.border:hover {
+    border: 1.5px solid white;
+}
+
+/*box2*/
+.add-second {
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.add-first {
+    color: #cccccc;
+    margin-left: 15px;
+}
+
+.add-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* --- Search Bar General Styles --- */
+.nav-search {
+    display: flex; /* Always flex */
+    border-radius: 5px;
+    background-color: #ffffff;
+    height: 35px;
+    justify-content: space-evenly;
+    border: 3px solid transparent;
+    transition: border-color 0.2s;
+    /* Removed fixed width from here, will be set by specific classes */
+}
+
+.nav-search:hover {
+    border-color: orange;
+}
+
+.search-icon {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #febd68;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #0f1111;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    color: black;
+    padding-left: 10px;
+    outline: none;
+    flex-grow: 1; /* Allow input to grow */
+}
+
+.search-select {
+    background-color: #e6e6e6; /* Slightly darker than f3f3f3 */
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    color: #0f1111;
+    cursor: pointer;
+    border-right: 1px solid #d4d4d4;
+}
+
+/*box4*/
+span {
+    font-size: 0.7rem;
+}
+
+/* box5*/
+.nav-second {
+    font-size: 14px;
+    font-weight: 700; /* Changed from light bold as it's not a valid value */
+}
+
+/*box6*/
+.nav-cart i {
+    font-size: 30px;
+}
+
+/** panel **/
+.panel {
+    color: white;
+    height: 40px;
+    background-color: #222f3d;
+    display: flex; /* Default is visible (desktop) */
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 10px;
+}
+
+.panel-op {
+    display: flex; /* Default is visible (desktop) */
+    flex-grow: 1; /* Allow it to take available space */
+    justify-content: flex-end; /* Push options to the right */
+    gap: 16px; /* Spacing between panel options */
+    margin-right: 10px; /* Add some margin on the right */
+}
+
+.panel-op p {
+    display: inline;
+    color: white;
+    margin-left: 0; /* Reset margin from previous versions */
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent wrapping for individual options */
+}
+
+.panel-op p:hover {
+    color: #cccccc;
+}
+
+.prime {
+    font-size: 1rem;
+    border: none;
+    background-color: #222f3d;
+    color: white;
+    cursor: pointer;
+}
+
+.panel-all {
+    display: flex; /* Default is visible (desktop) */
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 20px; /* Space between "All" and search bar */
+}
+
+/* Container for search bar when it moves to panel (mobile) or is hidden (desktop if in navbar) */
+.panel-search-container {
+    display: none; /* Hidden by default, shown by media query/JS for mobile */
+    flex-grow: 1;
+    max-width: 620px; /* Retain for potential mobile usage if needed */
+    margin: 0 20px; /* Retain for potential mobile usage if needed */
+}
+
+/* Styles for the search bar when it's located in the panel (mobile) */
+.nav-search.in-panel {
+    width: 100%; /* Take full width of its container */
+    margin: 0; /* No external margins */
+}
+
+/* Styles for the search bar when it's located in the navbar (desktop) */
+.nav-search.in-navbar {
+    flex-grow: 1; /* Allow search bar to grow in navbar */
+    max-width: 700px; /* Limit its max width in the navbar */
+    margin: 0 15px; /* Add some horizontal margin */
+}
+
+
+/** hero section**/
+.hero-section {
+    background-image: url("hero_page.jpg");
+    height: 400px;
+    background-size: cover;
+}
+
 /**shop-section**/
+.box {
+    height: 400px;
+    width: 23%;
+    background-color: white;
+    padding: 20px 0px 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.box{
- 
-    height:400px;
-    width:23%;
-    background-color:white;
-   padding:20px 0px 15px;
-   margin-top:15px;
+.shop-section,
+.addshop-section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.shop-section{
-    display:flex;
-   justify-content:space-evenly;
 
+.box-img {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
-.box-img{
-    height:280px;
-    background-size:cover;
-    margin-top:1rem;
-    margin-bottom:2rem;
- 
-}
-.box-content{
-    margin-left:1rem;
-    margin-right:1rem;
 
-    
+.box-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
+
+.box-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.box-content a {
+    color: #007185;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.box-content a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+
 /** add shop section**/
-.addshop-section{
-    display:flex;
-   justify-content:space-evenly;
-   /* background-color:rgb(161, 242, 218); */
-}
+/* Already handled by shop-section styling due to shared classes */
 
-/** toys-section**/
-
-.toys-section{
-    /* background-color:rgb(161, 242, 218); */
-    display:flex;
-    justify-content:center;
+/** toys-section & cloth-section **/
+.toys-section,
+.cloth-section {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-.toys{
-    padding:20px 7px 20px;
-    margin-top:25px;
-    margin-right:15px;
-    height:320px;
-    width:1468px;
-    background-color:white;
-}
-/** cloth-section**/
 
-.cloth-section{
-    /* background-color:rgb(161, 242, 218); */
-    display:flex;
-    justify-content:center;
-    align-items: center;
+.toys,
+.cloth {
+    padding: 20px 7px 20px;
+    width: 95%;
+    max-width: 1468px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.cloth{
-    padding:20px 7px 20px;
-    margin-top:25px;
-    margin-right:15px;
-    height:320px;
-    width:1468px;
-    background-color:white;
+
+.toys h2,
+.cloth h2 {
+    margin-left: 1rem;
+    margin-bottom: 10px;
 }
-.footer{
-    background-size:cover;
+
+.toys .box-img,
+.cloth .box-img {
+    height: 250px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
-.main-section{
+
+.footer {
+    background-image: url('amazfooter.png');
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.main-section {
     background: linear-gradient(135deg, #fefdc3, #e1fad1, #d3f7e7, #b3f2f8);
+    padding: 20px;
+}
 
+/* Drawer Menu Styles */
+.drawer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    background-color: #232f3e;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: white;
+}
+
+.drawer-header {
+    padding: 15px 25px;
+    background-color: #131a22;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drawer-closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.drawer-section {
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-section h3 {
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.drawer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.drawer-section ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.drawer-section ul li:hover {
+    color: #febd68;
+}
+
+/* Overlay for when drawer is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    display: none;
+}
+
+/* Prevent body scroll when drawer is open */
+.drawer-open body {
+    overflow: hidden;
+}
+
+/* Hamburger menu icon in navbar for small screens */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown on small screens */
+    cursor: pointer;
+    font-size: 1.2rem; /* Adjusted for better look */
+    padding: 0 10px;
+    white-space: nowrap; /* Prevent "All" from wrapping */
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+}
+
+
+/* ------------------------------------------- */
+/* Media Queries for Responsiveness */
+/* ------------------------------------------- */
+
+/* DESKTOP VIEW (>= 901px) */
+@media screen and (min-width: 901px) {
+    .navbar {
+        justify-content: space-between; /* Spread items across */
+        padding: 0 15px; /* Adjust padding */
+        height: 60px; /* Fixed height for desktop */
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .nav-logo {
+        order: 1; /* First item */
+    }
+
+    .nav-address {
+        order: 2;
+        margin-left: 10px; /* Space after logo */
+    }
+
+    .nav-search {
+        display: flex !important; /* Ensure visible */
+        order: 3; /* Between address and sign-in */
+        flex-grow: 1; /* Allow it to take remaining space */
+        max-width: 700px; /* Limit max width */
+        margin: 0 20px; /* Add side margins */
+    }
+
+    .nav-signin {
+        order: 4;
+    }
+
+    .nav-return {
+        order: 5;
+    }
+
+    .nav-cart {
+        order: 6;
+        margin-left: 15px; /* Space before cart */
+    }
+
+    /* Hide mobile-specific hamburger */
+    .hamburger-menu {
+        display: none !important;
+    }
+
+    /* Hide search bar container in panel on desktop (as search bar is in navbar) */
+    .panel-search-container {
+        display: none !important;
+    }
+
+    .panel {
+        display: flex; /* Panel is always visible on desktop */
+        justify-content: flex-start; /* Align "All" and options to the left/right */
+        gap: 15px; /* Gap between "All" and panel options */
+        padding-left: 20px;
+        padding-right: 20px; /* Add padding on the right for balanced look */
+    }
+
+    .panel-all {
+        display: flex !important; /* Ensure desktop "All" button is visible */
+        margin-right: 0; /* Reset margin */
+    }
+
+    .panel-op {
+        display: flex !important; /* Ensure panel options are visible */
+        justify-content: flex-start; /* Align options to the left of their flex container */
+        flex-grow: 1; /* Allow options to take remaining space */
+        margin-right: 0; /* Reset margin */
+    }
+}
+
+/* MOBILE VIEW (<= 900px) */
+@media screen and (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap */
+        height: auto; /* Adjust height based on content */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: space-between; /* Distribute items */
+        align-items: center; /* Align to center vertically */
+    }
+
+    .nav-logo {
+        order: 2; /* Position after hamburger */
+        margin: 0; /* Remove auto margin */
+    }
+
+    /* Hide desktop-specific navbar elements */
+    .nav-address,
+    .nav-signin,
+    .nav-return {
+        display: none !important;
+    }
+
+    .nav-cart {
+        order: 3; /* Position cart after logo */
+        margin-left: 10px;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu {
+        display: flex !important; /* Show hamburger menu */
+        order: 1; /* Place it first */
+    }
+
+    /* Hide search bar from navbar on mobile */
+    .nav-search {
+        display: none !important; /* Hide search bar from navbar */
+    }
+
+    /* Panel section for mobile */
+    .panel {
+        display: flex; /* Keep panel visible for search bar */
+        justify-content: flex-start; /* Search bar starts from left */
+        height: auto; /* Adjust height as needed */
+        padding: 10px; /* Add some padding */
+        flex-wrap: wrap; /* Allow content to wrap */
+    }
+
+    .panel-all {
+        display: none !important; /* Hide desktop "All" button */
+    }
+
+    .panel-op {
+        display: none !important; /* Hide the entire panel options row */
+    }
+
+    /* Search bar will be in the panel-search-container on mobile */
+    .panel-search-container {
+        display: flex !important; /* Ensure the container is visible */
+        width: 100%; /* Take full width of panel */
+        max-width: 100%; /* Ensure it doesn't exceed 100% */
+        margin: 0; /* Remove side margins for full width */
+        order: 1; /* Place search bar as the first item in the panel */
+    }
+
+    /* Styles for the search bar when it's located in the panel (mobile) */
+    .nav-search.in-panel {
+        width: 100%; /* Search bar itself takes full width of its container */
+        margin-top: 0; /* No top margin needed if it's already on its own line */
+        display: flex !important; /* Ensure the search bar is displayed */
+    }
+
+
+    /* Adjust box sizes for smaller screens */
+    .shop-section .box,
+    .addshop-section .box {
+        width: 45%; /* Two boxes per row */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .shop-section .box,
+    .addshop-section .box {
+        width: 90%; /* One box per row */
+    }
+
+    /* These styles apply to the search bar regardless of whether it's in navbar or panel */
+    .nav-search {
+        height: 30px;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+    }
+
+    .search-icon {
+        font-size: 1rem;
+        width: 40px;
+    }
+
+    .search-select {
+        width: 40px;
+    }
+
+    .nav-cart {
+        font-size: 0.8rem;
+    }
+
+    .nav-cart i {
+        font-size: 25px;
+    }
+
+    .hero-section {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .drawer {
+        width: 100%;
+    }
 }

@@ -12,17 +12,24 @@
 <body>
     <header>
         <div class="navbar">
-            <div class="nav-logo  border">
+            <div class="hamburger-menu" id="mobileAllButton" onclick="openDrawer()">
+                <i class="fa fa-bars"></i>
+                All
+            </div>
+
+            <div class="nav-logo border" id="navLogo">
                 <div class="logo"></div>
             </div>
-            <div class="nav-address border">
+
+            <div class="nav-address border" id="navAddress">
                 <p class="add-first">Deliver to</p>
                 <div class="add-icon">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <p class="add-second">India</p>
                 </div>
             </div>
-            <div class="nav-search">
+
+            <div class="nav-search" id="mainSearchBar">
                 <select class="search-select">
                     <option>All</option>
                 </select>
@@ -32,80 +39,135 @@
                 </div>
             </div>
 
-            <div class="nav-signin border">
+            <div class="nav-signin border" id="navSignIn">
                 <p><span>Hello, sign in</span></p>
                 <p class="nav-second">Accounts & Lists</p>
             </div>
-            <div class="nav-return border">
+            <div class="nav-return border" id="navReturn">
                 <p><span>Returns</span></p>
                 <p class="nav-second"> & Orders</p>
             </div>
-            <div class="nav-cart">
+            
+            <div class="nav-cart border" id="navCart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Cart
             </div>
         </div>
+
         <div class="panel">
-            <div class="panel-all">
+            <div class="panel-all border" id="desktopAllButton" onclick="openDrawer()">
                 <i class="fa fa-bars" aria-hidden="true"></i>
                 All
             </div>
-            <div class="panel-op">
-                <p>Amazon MiniTV</p>
-                <p>Sell</p>
-                <p>Best Sellers</p>
-                <p>Mobiles</p>
-                <p>Todays Deal's</p>
-                <p>Fashion</p>
-                <p>Electronics</p>
-                <select class="prime">
+
+            <div id="panelSearchBarContainer" class="panel-search-container"></div>
+
+            <div class="panel-op" id="desktopPanelOptions">
+                <p id="miniTv">Amazon MiniTV</p>
+                <p id="sell">Sell</p>
+                <p id="bestSellers">Best Sellers</p>
+                <p id="mobiles">Mobiles</p>
+                <p id="todaysDeals">Todays Deal's</p>
+                <p id="fashion">Fashion</p>
+                <p id="electronics">Electronics</p>
+                <select class="prime" id="primeOption">
                     <option>Prime</option>
                 </select>
-                <p>Home & Kitchen</p>
-                <p>New Releases</p>
-                <p>Customer Service</p>
-                <p>Amazon Pay</p>
-                <p>Computers</p>
-                <p>Books</p>
-                <p>Car & Motorbike</p>
+                <p id="homeKitchen">Home & Kitchen</p>
+                <p id="newReleases">New Releases</p>
+                <p id="customerService">Customer Service</p>
+                <p id="amazonPay">Amazon Pay</p>
+                <p id="computers">Computers</p>
+                <p id="books">Books</p>
+                <p id="carMotorbike">Car & Motorbike</p>
             </div>
         </div>
     </header>
-    <div class="hero-section">
 
+    <div id="myDrawer" class="drawer">
+        <a href="javascript:void(0)" class="drawer-closebtn" onclick="closeDrawer()">&times;</a>
+        <div class="drawer-header">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Hello, Sign In
+        </div>
+        <div class="drawer-section" id="drawerPrimePanel">
+            <h3>Trending</h3>
+            <ul>
+                <li id="drawerBestSellers">Best Sellers</li>
+                <li id="drawerNewReleases">New Releases</li>
+                <li id="drawerCustomerService">Customer Service</li>
+            </ul>
+            <h3>Programs & Features</h3>
+            <ul>
+                <li id="drawerMiniTv">Amazon MiniTV</li>
+                <li id="drawerSell">Sell on Amazon</li>
+                <li id="drawerPrime">Prime</li>
+            </ul>
+        </div>
+        <div class="drawer-section">
+            <h3>Shop By Category</h3>
+            <ul id="shopByCategoryList">
+                <li id="drawerMobiles">Mobiles, Computers</li>
+                <li>TV, Appliances, Electronics</li>
+                <li>Men's Fashion</li>
+                <li>Women's Fashion</li>
+                <li id="drawerHomeKitchen">Home, Kitchen, Pets</li>
+                <li>Beauty, Health, Grocery</li>
+                <li id="drawerBooks">Books</li>
+                <li>Sports, Fitness, Bags</li>
+                <li>Toys, Baby Products</li>
+                <li id="drawerTodaysDeals">Todays Deal's</li>
+                <li id="drawerFashion">Fashion</li>
+                <li id="drawerElectronics">Electronics</li>
+                <li id="drawerAmazonPay">Amazon Pay</li>
+                <li id="drawerComputers">Computers</li>
+                <li id="drawerCarMotorbike">Car & Motorbike</li>
+            </ul>
+        </div>
+        <div class="drawer-section">
+            <h3>Help & Settings</h3>
+            <ul>
+                <li>Your Account</li>
+                <li>Customer Service</li>
+                <li>Sign In</li>
+            </ul>
+        </div>
     </div>
-    </div>
+    <div id="overlay" class="overlay" onclick="closeDrawer()"></div>
+
+    <div class="hero-section"></div>
+
     <div class="main-section">
-    <div class="shop-section">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Applicances For Home</h2>
-                <div class="box-img" style="background-image:url('box1_img.jpg');"></div>
-                <a href="#">See more</a>
+        <div class="shop-section">
+            <div class="box1 box">
+                <div class="box-content">
+                    <h2>Applicances For Home</h2>
+                    <div class="box-img" style="background-image:url('box1_img.jpg');"></div>
+                    <a href="#">See more</a>
+                </div>
+            </div>
+            <div class="box2 box">
+                <div class="box-content">
+                    <h2>Cushion,Cover & more</h2>
+                    <div class="box-img" style="background-image:url('box2_img.jpg');"></div>
+                    <a href="#">See more</a>
+                </div>
+            </div>
+            <div class="box3 box">
+                <div class="box-content">
+                    <h2>Home Decoratives</h2>
+                    <div class="box-img" style="background-image:url('box3_img.jpg');"></div>
+                    <a href="#">See more</a>
+                </div>
+            </div>
+            <div class="box4 box">
+                <div class="box-content">
+                    <h2>Bedsheet ,Bed & more</h2>
+                    <div class="box-img" style="background-image:url('box4_img.jpg');"></div>
+                    <a href="#">See more</a>
+                </div>
             </div>
         </div>
-        <div class="box2  box">
-            <div class="box-content">
-                <h2>Cushion,Cover & more</h2>
-                <div class="box-img" style="background-image:url('box2_img.jpg');"></div>
-                <a href="#">See more</a>
-            </div>
-        </div>
-        <div class="box3  box">
-            <div class="box-content">
-                <h2>Home Decoratives</h2>
-                <div class="box-img" style="background-image:url('box3_img.jpg');"></div>
-                <a href="#">See more</a>
-            </div>
-        </div>
-        <div class="box4  box">
-            <div class="box-content">
-                <h2>Bedsheet ,Bed & more</h2>
-                <div class="box-img" style="background-image:url('box4_img.jpg');"></div>
-                <a href="#">See more</a>
-            </div>
-        </div>
-    </div>
         <div class="addshop-section">
             <div class="box1 box">
                 <div class="box-content">
@@ -114,46 +176,174 @@
                     <a href="#">See more</a>
                 </div>
             </div>
-            <div class="box2  box">
+            <div class="box2 box">
                 <div class="box-content">
                     <h2>Customers’ Most-Loved Fashion for you</h2>
                     <div class="box-img" style="background-image:url('box2_img2.jpg');"></div>
                     <a href="#">See more</a>
                 </div>
             </div>
-            <div class="box3  box">
+            <div class="box3 box">
                 <div class="box-content">
                     <h2>Starting ₹99 | Start your fitness journey</h2>
                     <div class="box-img" style="background-image:url('box2_img3.jpg');"></div>
                     <a href="#">See more</a>
                 </div>
             </div>
-            <div class="box4  box">
+            <div class="box4 box">
                 <div class="box-content">
-                    <h2 >Lamps & more</h2>
+                    <h2>Lamps & more</h2>
                     <div class="box-img" style="background-image:url('box2_img4.jpg');"></div>
                     <a class="lamps" href="#">See more</a>
                 </div>
             </div>
+        </div>
+        <div class="toys-section">
+            <div class="toys">
+                <h2 class="toysh2">Best Sellers in Toys & Games</h2>
+                <div class="box-img" style="background-image:url('toys_amaz1.png');"></div>
+            </div>
+        </div>
+        <div class="cloth-section">
+            <div class="cloth">
+                <h2>Best Sellers in Cloth & Accessories</h2>
+                <div class="box-img" style="background-image:url('cloth_amaz.png');"></div>
+            </div>
+        </div>
     </div>
-<div class="toys-section">
-    <div class="toys">
-        <h2 class="toysh2">Best Sellers in Toys & Games</h2>
-        <div class="box-img" style="background-image:url('toys_amaz1.png');"></div>
+    <div class="amazfooter">
+        <div class="footer"></div>
+    </div>
 
-    </div>
-</div>
-<div class="cloth-section">
-    <div class="cloth">
-        <h2>Best Sellers in Toys & Games</h2>
-        <div class="box-img" style="background-image:url('cloth_amaz.png');"></div>
+    <script>
+        function openDrawer() {
+            document.getElementById("myDrawer").style.width = "280px";
+            document.getElementById("overlay").style.display = "block";
+            document.body.classList.add("drawer-open");
+        }
 
-    </div>
-</div>
-</div>
-<div class="amazfooter">
-    <div class="footer" style="background-image: url('amazfooter.png');"></div>
-</div>
+        function closeDrawer() {
+            document.getElementById("myDrawer").style.width = "0";
+            document.getElementById("overlay").style.display = "none";
+            document.body.classList.remove("drawer-open");
+        }
+
+        // JavaScript for managing element positions and visibility
+        const mainSearchBar = document.getElementById('mainSearchBar');
+        const panelSearchBarContainer = document.getElementById('panelSearchBarContainer');
+        const navbar = document.querySelector('.navbar');
+
+        // Drawer related elements
+        const desktopPanelOptions = document.getElementById('desktopPanelOptions');
+        const drawerPrimePanel = document.getElementById('drawerPrimePanel');
+        const shopByCategoryList = document.getElementById('shopByCategoryList');
+
+        // Get individual panel options (for moving to drawer)
+        const miniTv = document.getElementById('miniTv');
+        const sell = document.getElementById('sell');
+        const bestSellers = document.getElementById('bestSellers');
+        const mobiles = document.getElementById('mobiles');
+        const todaysDeals = document.getElementById('todaysDeals');
+        const fashion = document.getElementById('fashion');
+        const electronics = document.getElementById('electronics');
+        const primeOption = document.getElementById('primeOption');
+        const homeKitchen = document.getElementById('homeKitchen');
+        const newReleases = document.getElementById('newReleases');
+        const customerService = document.getElementById('customerService');
+        const amazonPay = document.getElementById('amazonPay');
+        const computers = document.getElementById('computers');
+        const books = document.getElementById('books');
+        const carMotorbike = document.getElementById('carMotorbike');
+
+        // Get drawer specific list items (pre-created or to be created if not exists)
+        const drawerBestSellers = document.getElementById('drawerBestSellers');
+        const drawerNewReleases = document.getElementById('drawerNewReleases');
+        const drawerCustomerService = document.getElementById('drawerCustomerService');
+        const drawerMiniTv = document.getElementById('drawerMiniTv');
+        const drawerSell = document.getElementById('drawerSell');
+        const drawerPrime = document.getElementById('drawerPrime');
+        const drawerMobiles = document.getElementById('drawerMobiles');
+        const drawerHomeKitchen = document.getElementById('drawerHomeKitchen');
+        const drawerBooks = document.getElementById('drawerBooks');
+        const drawerTodaysDeals = document.getElementById('drawerTodaysDeals');
+        const drawerFashion = document.getElementById('drawerFashion');
+        const drawerElectronics = document.getElementById('drawerElectronics');
+        const drawerAmazonPay = document.getElementById('drawerAmazonPay');
+        const drawerComputers = document.getElementById('drawerComputers');
+        const drawerCarMotorbike = document.getElementById('drawerCarMotorbike');
+
+
+        function manageLayout() {
+            if (window.innerWidth > 900) { // Desktop View
+                // Move search bar to navbar
+                if (mainSearchBar.parentNode !== navbar) {
+                    // Find the correct insert position in navbar: before nav-signin
+                    const navSignIn = document.getElementById('navSignIn');
+                    navbar.insertBefore(mainSearchBar, navSignIn);
+                    mainSearchBar.classList.add('in-navbar');
+                    mainSearchBar.classList.remove('in-panel');
+                }
+
+                // Restore panel options to panel from drawer
+                if (miniTv.parentNode !== desktopPanelOptions) {
+                    desktopPanelOptions.appendChild(miniTv);
+                    desktopPanelOptions.appendChild(sell);
+                    desktopPanelOptions.appendChild(bestSellers);
+                    desktopPanelOptions.appendChild(mobiles);
+                    desktopPanelOptions.appendChild(todaysDeals);
+                    desktopPanelOptions.appendChild(fashion);
+                    desktopPanelOptions.appendChild(electronics);
+                    desktopPanelOptions.appendChild(primeOption);
+                    desktopPanelOptions.appendChild(homeKitchen);
+                    desktopPanelOptions.appendChild(newReleases);
+                    desktopPanelOptions.appendChild(customerService);
+                    desktopPanelOptions.appendChild(amazonPay);
+                    desktopPanelOptions.appendChild(computers);
+                    desktopPanelOptions.appendChild(books);
+                    desktopPanelOptions.appendChild(carMotorbike);
+                }
+
+            } else { // Mobile View
+                // Move search bar to panel search container
+                if (mainSearchBar.parentNode !== panelSearchBarContainer) {
+                    panelSearchBarContainer.appendChild(mainSearchBar);
+                    mainSearchBar.classList.add('in-panel');
+                    mainSearchBar.classList.remove('in-navbar');
+                }
+
+                // Move panel options into the drawer
+                // Ensure the list items exist in the drawer or create them if needed.
+                // We're moving the actual DOM elements from the panel to the drawer's pre-defined list items
+                // This assumes drawer list items have appropriate IDs and are `<li>` elements.
+                if (bestSellers.parentNode !== drawerPrimePanel.querySelector('ul:nth-of-type(1)')) {
+                    drawerPrimePanel.querySelector('ul:nth-of-type(1)').appendChild(bestSellers);
+                    drawerPrimePanel.querySelector('ul:nth-of-type(1)').appendChild(newReleases);
+                    drawerPrimePanel.querySelector('ul:nth-of-type(1)').appendChild(customerService);
+
+                    drawerPrimePanel.querySelector('ul:nth-of-type(2)').appendChild(miniTv);
+                    drawerPrimePanel.querySelector('ul:nth-of-type(2)').appendChild(sell);
+                    drawerPrimePanel.querySelector('ul:nth-of-type(2)').appendChild(primeOption);
+
+                    shopByCategoryList.appendChild(mobiles);
+                    shopByCategoryList.appendChild(todaysDeals);
+                    shopByCategoryList.appendChild(fashion);
+                    shopByCategoryList.appendChild(electronics);
+                    shopByCategoryList.appendChild(homeKitchen);
+                    shopByCategoryList.appendChild(amazonPay);
+                    shopByCategoryList.appendChild(computers);
+                    shopByCategoryList.appendChild(books);
+                    shopByCategoryList.appendChild(carMotorbike);
+                }
+            }
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', manageLayout);
+        window.addEventListener('resize', manageLayout);
+
+        // Initial call
+        manageLayout();
+    </script>
 </body>
 
 </html>
